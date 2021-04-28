@@ -24,13 +24,22 @@ RUN R -e "options(repos = \
                      'pbapply', \
                      'pcaPP', \
                      'philentropy', \
-                     'WGCNA', \
                      'Rdpack' \
                      ))"
 
 # install propr
 # RUN R -e "BiocManager::install('propr')"
 RUN R -e "devtools::install_github('suzannejin/propr')"
+
+# install WGCNA and dependencies
+RUN R -e "BiocManager::install(c('impute', \
+                                 'preprocessCore', \
+                                 'AnnotationDbi', \
+                                 'org.Hs.eg.db', \
+                                 'GO.db'))"
+RUN R -e "options(repos = \
+  list(CRAN = 'http://mran.revolutionanalytics.com/snapshot/${WHEN}/')); \
+  install.packages('WGCNA')"
 
 # install dismay
 RUN R -e "devtools::install_github('suzannejin/dismay')"
