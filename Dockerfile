@@ -24,7 +24,9 @@ RUN R -e "options(repos = \
                      'pbapply', \
                      'pcaPP', \
                      'philentropy', \
-                     'Rdpack' \
+                     'Rdpack', \
+                     'ppcor', \
+                     'corpcor' \
                      ))"
 
 # install propr

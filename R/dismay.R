@@ -46,6 +46,8 @@
 #'   \item \code{rho_p}: calculates the symmetric version of the measure of 
 #'     proportionality rho from the \code{propr} package, implemented in the 
 #'     \code{\link[propr]{proportionality}} function
+#'   \item \code{partialcor}: calculates the regularized partial correlation
+#'     using the \code{\link[corpcor]{pcor.shrink}} function
 #' }
 #'
 #' Distance metrics (Euclidean, Canberra, and Manhattan distances, and the 
@@ -76,11 +78,13 @@
 #' 
 #' \insertRef{mohammadi2018}{dismay}
 #' 
+#' \insertRef{Schäfer2005}{dismay}
+#' 
 #' @export
 dismay = function(mat, metric = c(
   'pearson', 'spearman', 'kendall', 'bicor', 'zi_kendall', 'binomial', 'MI', 
   'cosine', 'jaccard', 'canberra', 'euclidean', 'manhattan', 'RA', 
-  'weighted_rank', 'hamming'), ...) {
+  'weighted_rank', 'hamming', 'partialcor'), ...) {
   
   # first, convert to numeric, if needed 
   if (typeof(mat) == "integer") {
@@ -125,6 +129,8 @@ dismay = function(mat, metric = c(
     cor = -1.0 * propr::phis(mat, select = colnames(mat))@matrix
   } else if (metric == 'rho_p') {
     cor = propr::perb(mat, select = colnames(mat))@matrix
+  } else if (metric == 'partialcor') {
+    cor = dismay::partialcor(mat)
   } else{
     stop("invalid distance/similarity metric: ", metric)
   }

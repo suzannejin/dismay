@@ -4,9 +4,13 @@
 \alias{dismay}
 \title{Calculate distance or similarity measures on a matrix}
 \usage{
-dismay(mat, metric = c("pearson", "spearman", "kendall", "bicor",
-  "zi_kendall", "binomial", "MI", "cosine", "jaccard", "canberra",
-  "euclidean", "manhattan", "RA", "weighted_rank", "hamming"), ...)
+dismay(
+  mat,
+  metric = c("pearson", "spearman", "kendall", "bicor", "zi_kendall", "binomial", "MI",
+    "cosine", "jaccard", "canberra", "euclidean", "manhattan", "RA", "weighted_rank",
+    "hamming", "partialcor"),
+  ...
+)
 }
 \arguments{
 \item{mat}{the matrix of interest, with samples in rows and biological 
@@ -68,6 +72,8 @@ as follows:
   \item \code{rho_p}: calculates the symmetric version of the measure of 
     proportionality rho from the \code{propr} package, implemented in the 
     \code{\link[propr]{proportionality}} function
+  \item \code{partialcor}: calculates the regularized partial correlation
+    using the \code{\link[corpcor]{pcor.shrink}} function
 }
 
 Distance metrics (Euclidean, Canberra, and Manhattan distances, and the 
@@ -91,4 +97,6 @@ cos = dismay(mat, 'cosine')
 \insertRef{pimentel2015}{dismay}
 
 \insertRef{mohammadi2018}{dismay}
+
+\insertRef{Schäfer2005}{dismay}
 }

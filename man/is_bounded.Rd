@@ -14,5 +14,5 @@ Test whether the values for a metric of interest lie within the range
 [-1, 1]. This returns true for Pearson/Spearman/Kendall correlations, 
 biweight midcorrelation, zero-inflated Kendall's tau, mutual information
 (as implemented in WGCNA), the \code{rho_p} measure of proportionality, 
-weighted rank correlation, and cosine similarity.
+weighted rank correlation, cosine similarity, and partial correlation.
 }
