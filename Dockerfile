@@ -29,10 +29,6 @@ RUN R -e "options(repos = \
                      'corpcor' \
                      ))"
 
-# install propr
-# RUN R -e "BiocManager::install('propr')"
-RUN R -e "devtools::install_github('suzannejin/propr')"
-
 # install WGCNA and dependencies
 RUN R -e "BiocManager::install(c('impute', \
                                  'preprocessCore', \
@@ -45,3 +41,7 @@ RUN R -e "options(repos = \
 
 # install dismay
 RUN R -e "devtools::install_github('suzannejin/dismay')"
+
+# install propr
+# RUN R -e "BiocManager::install('propr')"
+RUN R -e "devtools::install_github('suzannejin/propr')"

@@ -40,10 +40,10 @@
 #'   \item Sorensen-Dice coefficient: uses the implementation within the
 #'     \code{\link[arules]{dissimilarity}} function from the 
 #'     \code{arules} package
-#'   \item \code{phi_s}: calculates the symmetric version of the measure of 
+#'   \item \code{phs}: calculates the symmetric version of the measure of 
 #'     proportionality phi from the \code{propr} package, implemented in the 
 #'     \code{\link[propr]{proportionality}} function
-#'   \item \code{rho_p}: calculates the symmetric version of the measure of 
+#'   \item \code{rho}: calculates the symmetric version of the measure of 
 #'     proportionality rho from the \code{propr} package, implemented in the 
 #'     \code{\link[propr]{proportionality}} function
 #'   \item \code{partialcor}: calculates the regularized partial correlation
@@ -51,7 +51,7 @@
 #' }
 #'
 #' Distance metrics (Euclidean, Canberra, and Manhattan distances, and the 
-#' \code{phi_s} measure of proportionality) are 
+#' \code{phs} measure of proportionality) are 
 #' multiplied by -1 for consistency (i.e., higher values indicate greater
 #' similarity across all measures of association). 
 #'
@@ -125,9 +125,9 @@ dismay = function(mat, metric = c(
     cor = -1.0 * dismay::hamming(mat)
   } else if (metric == 'dice') {
     cor = -1.0 * dismay::dice(mat)
-  } else if (metric == 'phi_s') {
+  } else if (metric == 'phs') {
     cor = -1.0 * propr::phis(mat, select = colnames(mat))@matrix
-  } else if (metric == 'rho_p') {
+  } else if (metric == 'rho') {
     cor = propr::perb(mat, select = colnames(mat))@matrix
   } else if (metric == 'partialcor') {
     cor = dismay::partialcor(mat)
