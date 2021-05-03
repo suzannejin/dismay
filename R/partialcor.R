@@ -9,7 +9,7 @@
 #' @return the estimated partial correlation coefficients
 #' @export
 partialcor <- function(mat){
-    cor = corpcor::pcor.shrink()
+    cor = corpcor::pcor.shrink(mat)
     cor = matrix(cor, ncol=ncol(mat), nrow=nrow(mat))  # convert shrinkage object to matrix
     rownames(cor) = rownames(mat)
     colnames(cor) = colnames(mat)
