@@ -26,7 +26,16 @@ RUN R -e "options(repos = \
                      'philentropy', \
                      'Rdpack', \
                      'ppcor', \
-                     'corpcor' \
+                     'corpcor', \
+                     'tidyverse', \
+                     'ontologyIndex', \
+                     'patchwork', \
+                     'ggridges', \
+                     'ggsci', \
+                     'cowplot', \
+                     'Polychrome', \
+                     'ggalt', \
+                     'scico' \
                      ))"
 
 # install WGCNA and dependencies
@@ -34,14 +43,19 @@ RUN R -e "BiocManager::install(c('impute', \
                                  'preprocessCore', \
                                  'AnnotationDbi', \
                                  'org.Hs.eg.db', \
-                                 'GO.db'))"
+                                 'org.Mm.eg.db', \
+                                 'GO.db', \
+                                 'arrayQualityMetrics', \
+                                 'rtracklayer' \
+                                 ))"
 RUN R -e "options(repos = \
   list(CRAN = 'http://mran.revolutionanalytics.com/snapshot/${WHEN}/')); \
   install.packages('WGCNA')"
 
-# install dismay
-RUN R -e "devtools::install_github('suzannejin/dismay')"
-
-# install propr
-# RUN R -e "BiocManager::install('propr')"
-RUN R -e "devtools::install_github('suzannejin/propr')"
+# install dismay, flavin, propr
+RUN R -e "devtools::install_github(c('suzannejin/dismay', \
+                                     'skinnider/flavin', \
+                                     'suzannejin/propr', \
+                                     'sarbal/EGAD', \
+                                     'dgrtwo/drlib' \
+                                     ))"
