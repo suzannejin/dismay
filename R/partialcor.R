@@ -10,8 +10,7 @@
 #' @export
 partialcor <- function(mat){
     cor = corpcor::pcor.shrink(mat)
-    cor = matrix(cor, ncol=ncol(mat), nrow=nrow(mat))  # convert shrinkage object to matrix
-    rownames(cor) = rownames(mat)
-    colnames(cor) = colnames(mat)
+    cor = matrix(cor, ncol=ncol(cor), nrow=nrow(cor))  # convert shrinkage object to matrix
+    rownames(cor) = colnames(cor) = colnames(mat)
     return(cor)
 }
