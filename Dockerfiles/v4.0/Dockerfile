@@ -5,12 +5,6 @@ FROM bioconductor/bioconductor_docker:RELEASE_3_12
 ARG WHEN="2020-12-17"
 
 # install CRAN packages
-#   optparse : manage input parameters
-#   this.path : manage script paths
-#   zCompositions : manage zeros
-#   doMC : enable parallelization
-#   rgl : 3D network plot
-#   dismay dependencies: arules, gtools, lsa, pbapply, pcaPP, philentropy, WGCNA, Rdpack
 RUN R -e "options(repos = \
   list(CRAN = 'http://mran.revolutionanalytics.com/snapshot/${WHEN}/')); \
   install.packages(c('optparse', \
@@ -35,7 +29,8 @@ RUN R -e "options(repos = \
                      'cowplot', \
                      'Polychrome', \
                      'ggalt', \
-                     'scico' \
+                     'scico', \
+                     'precrec' \
                      ))"
 
 # install WGCNA and dependencies
