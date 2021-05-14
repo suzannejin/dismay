@@ -2,11 +2,14 @@
 FROM rocker/rstudio:3.4.0
 
 
-# install openssl
+# install linux packages
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends apt-utils \
 	&& apt-get install -y --no-install-recommends \
-    libxml2-dev
+    procps \
+    libxml2-dev 
+
+# install openssl
 RUN R -e "install.packages('https://cran.r-project.org/src/contrib/Archive/openssl/openssl_0.9.9.tar.gz', \
                             repos=NULL, type='source' \
                             )"
