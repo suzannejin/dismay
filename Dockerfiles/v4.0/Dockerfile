@@ -26,11 +26,14 @@ RUN R -e "options(repos = \
                      'patchwork', \
                      'ggridges', \
                      'ggsci', \
+                     'ggpubr', \
                      'cowplot', \
                      'Polychrome', \
                      'ggalt', \
                      'scico', \
-                     'precrec' \
+                     'precrec', \
+                     'lawstat', \
+                     'aggregation' \
                      ))"
 
 # install WGCNA and dependencies
