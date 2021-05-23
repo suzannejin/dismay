@@ -9,7 +9,8 @@ RUN apt-get update \
     libtiff-dev \
     libxt-dev \
     libgit2-dev \
-    libbz2-dev
+    libbz2-dev \
+    procps
 
 
 # install R packages
