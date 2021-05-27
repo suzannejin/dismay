@@ -51,9 +51,9 @@ RUN R -e "options(repos = \
   install.packages('WGCNA')"
 
 # install dismay, flavin, propr
+RUN R -e "install.packages('https://cran.r-project.org/src/contrib/Archive/propr/propr_4.0.0.tar.gz')"
 RUN R -e "devtools::install_github(c('suzannejin/dismay', \
                                      'skinnider/flavin', \
-                                     'suzannejin/propr', \
                                      'sarbal/EGAD', \
                                      'dgrtwo/drlib' \
                                      ))"
