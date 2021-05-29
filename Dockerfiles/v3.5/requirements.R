@@ -30,7 +30,7 @@ for (pkg in names(pkgs)){
     ver = pkgs[[pkg]]
     install_version(pkg, version=ver, repos=repos$cran) # upgrade='never')
 }
-install.packages(c('ggpubr', 'aggregation'))
+install.packages(c('ggpubr', 'aggregation', 'progress', 'scico'))
 
 # install EGAD, scran
 pkgs = list('scran' = c('1.10.2', repos$bioc3.8),
