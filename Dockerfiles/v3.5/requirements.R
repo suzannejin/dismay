@@ -21,7 +21,6 @@ pkgs = list('igraph'    = '1.2.2',
             'vegan'     = '2.5-2', 
             'mclust'    = '5.4.1',
             'ClusterR'  = '1.1.6',
-            'propr'     = '4.0.0',
             'corpcor'   = '1.6.9',
             'precrec'   = '0.11.2',
             'this.path' = '0.2.0',
@@ -61,7 +60,8 @@ install_version('WGCNA', version='1.66', repos=repos$cran)
 install.packages(c('pbapply', 'philentropy'))
 devtools::install_github(c('suzannejin/dismay', 'skinnider/flavin'))
 
-# install other propr versions
+# install propr
+install_github('suzannejin/propr@v4.0.0')
 libpath = .libPaths()[1]
 proprs = list(tpq = paste0(libpath, '/propr_tpq'),
               sjin = paste0(libpath, '/propr_sjin'))
