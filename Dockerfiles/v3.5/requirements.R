@@ -35,7 +35,8 @@ install.packages(c('ggpubr',
                    'scico', 
                    'ggridges', 
                    'Polychrome',
-                   'ggalt'))
+                   'ggalt',
+                   'zCompositions'))
 install_github('dgrtwo/drlib')
 
 # install EGAD, scran
