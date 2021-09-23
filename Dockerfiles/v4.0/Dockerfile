@@ -26,11 +26,14 @@ RUN R -e "options(repos = \
                      'patchwork', \
                      'ggridges', \
                      'ggsci', \
+                     'ggpubr', \
                      'cowplot', \
                      'Polychrome', \
                      'ggalt', \
                      'scico', \
-                     'precrec' \
+                     'precrec', \
+                     'lawstat', \
+                     'aggregation' \
                      ))"
 
 # install WGCNA and dependencies
@@ -50,7 +53,7 @@ RUN R -e "options(repos = \
 # install dismay, flavin, propr
 RUN R -e "devtools::install_github(c('suzannejin/dismay', \
                                      'skinnider/flavin', \
-                                     'suzannejin/propr', \
+                                     'suzannejin/propr@v4.0.0', \
                                      'sarbal/EGAD', \
                                      'dgrtwo/drlib' \
                                      ))"
