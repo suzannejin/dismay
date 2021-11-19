@@ -133,7 +133,7 @@ dismay = function(mat, metric = c(
     cor = dismay::pcor(mat)
   } else if (metric == 'pcorshrink'){
     cor = dismay::pcor.shrink(mat)
-  } else if (metric == 'pcorshrink0')}{
+  } else if (metric == 'pcorshrink0'){
     cor = dismay::pcor.shrink(mat, lambda=F)
   } else{
     stop("invalid distance/similarity metric: ", metric)
