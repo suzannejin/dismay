@@ -84,7 +84,7 @@
 dismay = function(mat, metric = c(
   'pearson', 'spearman', 'kendall', 'bicor', 'zi_kendall', 'binomial', 'MI', 
   'cosine', 'jaccard', 'canberra', 'euclidean', 'manhattan', 'RA', 
-  'weighted_rank', 'hamming', 'partialcor'), ...) {
+  'weighted_rank', 'hamming', 'pcor', 'pcor.shrink'), ...) {
   
   # first, convert to numeric, if needed 
   if (typeof(mat) == "integer") {
@@ -129,8 +129,12 @@ dismay = function(mat, metric = c(
     cor = -1.0 * propr::phis(mat, select = colnames(mat))@matrix
   } else if (metric == 'rho') {
     cor = propr::perb(mat, select = colnames(mat))@matrix
-  } else if (metric == 'partialcor') {
-    cor = dismay::partialcor(mat)
+  } else if (metric == 'pcor') {
+    cor = dismay::pcor(mat)
+  } else if (metric == 'pcorshrink'){
+    cor = dismay::pcor.shrink(mat)
+  } else if (metric == 'pcorshrink0')}{
+    cor = dismay::pcor.shrink(mat, lambda=F)
   } else{
     stop("invalid distance/similarity metric: ", metric)
   }

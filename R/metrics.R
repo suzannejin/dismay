@@ -6,7 +6,7 @@ metrics = function() {
   c('pearson', 'spearman', 'kendall', 'bicor', 'binomial', 
     'cosine', 'jaccard', 'canberra', 'euclidean', 'manhattan', 'weighted_rank',
     'hamming', 'dice', 'phs', 'rho', 'zi_kendall', 'MI',
-    'partialcor')
+    'pcor', 'pcorshrink', 'pcorshrink0')
 }
 
 #' Get metrics bounded by the range [-1, 1]
@@ -22,5 +22,5 @@ metrics = function() {
 is_bounded = function(metric) {
   metric %in% c("pearson", "spearman", "kendall", "bicor", "zi_kendall",
                 "MI", "rho", "weighted_rank", "cosine",
-                "partialcor")
+                "pcor", "pcorshrink", "pcorshrink0")
 }
