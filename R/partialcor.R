@@ -11,7 +11,7 @@
 #' @export
 partialcor <- function(mat, method = c('pcor', 'pcorshrink', 'pcorshrink0')){
     if (method == 'pcor'){
-        cor = ppcor::pcor(mat)
+        cor = ppcor::pcor(mat)$estimate
     }else if (method == 'pcorshrink'){
         cor = corpcor::pcor.shrink(mat)
     }else if (method == 'pcorshrink0'){
