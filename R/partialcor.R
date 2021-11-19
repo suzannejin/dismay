@@ -9,16 +9,12 @@
 #' @param mat a matrix of data, with samples in rows and features in columns
 #' @return the estimated partial correlation coefficients
 #' @export
-pcor <- function(mat){
-    cor = ppcor::pcor(mat)
-    cor = matrix(cor, ncol=ncol(cor), nrow=nrow(cor))  # convert shrinkage object to matrix
-    rownames(cor) = colnames(cor) = colnames(mat)
-    return(cor)
-}
-pcor.shrink <- function(mat, lambda=TRUE){
-    if (lambda){
+partialcor <- function(mat, method = c('pcor', 'pcorshrink', 'pcorshrink0')){
+    if (method == 'pcor'){
+        cor = pcor::pcor(mat)
+    }else if (method == 'pcorshrink'){
         cor = corpcor::pcor.shrink(mat)
-    }else{
+    }else if (method == 'pcorshrink0'){
         cor = corpcor::pcor.shrink(mat, lambda=0)
     }
     cor = matrix(cor, ncol=ncol(cor), nrow=nrow(cor))  # convert shrinkage object to matrix

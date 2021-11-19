@@ -129,12 +129,8 @@ dismay = function(mat, metric = c(
     cor = -1.0 * propr::phis(mat, select = colnames(mat))@matrix
   } else if (metric == 'rho') {
     cor = propr::perb(mat, select = colnames(mat))@matrix
-  } else if (metric == 'pcor') {
-    cor = dismay::pcor(mat)
-  } else if (metric == 'pcorshrink'){
-    cor = dismay::pcor.shrink(mat)
-  } else if (metric == 'pcorshrink0'){
-    cor = dismay::pcor.shrink(mat, lambda=F)
+  } else if (metric %in% c('pcor', 'pcorshrink', 'pcorshrink0')) {
+    cor = dismay::partialcor(mat, method = metric)
   } else{
     stop("invalid distance/similarity metric: ", metric)
   }
