@@ -84,7 +84,7 @@
 dismay = function(mat, metric = c(
   'pearson', 'spearman', 'kendall', 'bicor', 'zi_kendall', 'binomial', 'MI', 
   'cosine', 'jaccard', 'canberra', 'euclidean', 'manhattan', 'RA', 
-  'weighted_rank', 'hamming', 'pcor', 'pcor.shrink'), ...) {
+  'weighted_rank', 'hamming', 'pcor', 'pcorshrink', 'pcorshrink0'), ...) {
   
   # first, convert to numeric, if needed 
   if (typeof(mat) == "integer") {
