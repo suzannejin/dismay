@@ -1,6 +1,8 @@
 # Docker inheritance
 FROM rocker/tidyverse:3.5.0
 
+ARG WHEN='2018-10-24'
+
 # install linux dependencies
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
@@ -26,4 +28,6 @@ RUN wget https://download.osgeo.org/proj/proj-4.9.3.tar.gz \
 
 # install R packages
 ADD requirements.R /tmp/requirements.R 
+ADD requirements2.R /tmp/requirements2.R 
 RUN Rscript /tmp/requirements.R
+RUN Rscript /tmp/requirements2.R
