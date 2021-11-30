@@ -75,5 +75,5 @@ libpath = .libPaths()[1]
 proprs = list(tpq = paste0(libpath, '/propr_tpq'),
               sjin = paste0(libpath, '/propr_sjin'))
 dir.create(proprs$tpq); dir.create(proprs$sjin)
-install_github('tpq/propr@2bd7c44bf59eaac6b4d329d38afd40ac83e2089a', lib=proprs$tpq)
+install_github('tpq/propr@a2cf5987bfae7db447de6a728f57d4fe401b6649', lib=proprs$tpq)
 install_github('suzannejin/propr', lib=proprs$sjin)
